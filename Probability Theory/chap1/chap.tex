@@ -1,0 +1,777 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{概率论的基本概念}
+
+\section{随机试验}
+
+\subsection{名词}
+
+\begin{defn}
+    确定性现象：结果呈现确定性的现象.
+\end{defn}
+
+\begin{defn}
+    随机现象：在个别试验中呈现不确定性，但是在大量重复试验中，表现出\textbf{统计规律性}的现象.
+\end{defn}
+
+\subsection{随机试验}
+
+\begin{defn}
+    对随机现象的实现或对其观察称为\bf{随机试验}，记为 \(E\).
+\end{defn}
+
+\begin{example}
+    投币观察向上的面.（实现、观察）
+\end{example}
+
+\begin{example}
+    记录每个星期一的天气.（观察）
+\end{example}
+
+\subsubsection{特点}
+\begin{enumerate}
+    \item 相同条件可重复.
+    \item 试验结果明确可知，且一般不止一个.
+    \item 试验前不能确定那个结果出现.
+\end{enumerate}
+
+\section{样本空间与随机事件}
+
+\subsection{样本空间}
+
+\begin{defn}
+    将 \(E\) 的所有可能结果和组成的集合称为 \(E\) 的\bf{样本空间}\(\sim \Omega\).
+\end{defn}
+
+\begin{defn}
+    样本空间 \(\Omega\) 中的元素即为\bf{样本点}.
+\end{defn}
+
+\begin{example}
+    写出下列试验的样本空间：
+    \begin{enumerate}
+        \item[\(E_1\)] 抛一枚硬币，观察正面 \(H\)，反面 \(T\) 出现的情况.
+        \item[答:] \(\Omega = \{ H , T \}\)
+        \item[\(E_2\)] 将一枚硬币抛掷三次，观察正面 \(H\)，反面 \(T\) 出现的情况.
+        \item[答:] \(\Omega = \{HHH , TTT , HHT , HTH , THH , HTT , THT , TTH\}\).  
+        \item[\(E_3\)] 记录某一地区一昼夜的最高气温和最低气温.
+        \item[答:] 记最高气温为 \(x\)，最低气温为 \(y\)，该地区历史最低气温（不可能更低）为 \(T_1\)，历史最高气温（不可能更高）为 \(T_2\)，则
+        \[
+            \Omega = \{\left(x,y\right) | T_1 \leqslant y \leqslant x \leqslant T_2\}.
+        \]
+    \end{enumerate}
+\end{example}
+
+\subsection{随机事件}
+
+\begin{defn}
+    称 \(E\) 的样本空间 \(\Omega\) 的子集为 \(E\) 的\bf{随机事件}.
+\end{defn}
+
+\begin{defn}
+    在一次试验中，该子集的一个样本点出现，称该事件\bf{发生}.
+\end{defn}
+
+\begin{example}
+    投一枚骰子，将红色的点向上称作事件 \(A\). 在一次试验中 \(1\) 点向上，请问事件 \(A\) 是否发生？
+\end{example}
+
+\begin{solution}
+    样本空间 \(\Omega = \{1 , 2 , 3 , 4 , 5 , 6\}\), 事件 \(A = \{1 , 4\}\). 可知 \(A \subseteq S\) 且 \(A\) 中样本点 \(\{1\}\) 在该试验中出现，因此事件 \(A\) 发生.
+\end{solution}
+
+\begin{defn}
+    由一个样本点组成的单点集叫做\bf{基本事件}.
+\end{defn}
+
+\begin{defn}
+    样本空间 \(\Omega\) 本身为一个\bf{必然事件}.
+\end{defn}
+
+\begin{defn}
+    事件集合中没有元素，即为 \(\emptyset \), 称为\bf{不可能事件}.
+\end{defn}
+
+\section{事件间的关系及运算}
+
+\subsection{事件关系}
+
+\subsubsection{包含关系}
+
+\begin{defn}
+    \(A \subset B\) 表示事件 \(A\) 包含于事件 \(B\), 如果事件 \(A\) 发生，则事件 \(B\) 一定发生.
+\end{defn}
+
+\begin{rmk}
+    若 \(A \subset B\) 且 \(B \subset A\) 则 \(A = B\). 这一性质常用于证明集合相等.
+\end{rmk}
+
+\subsubsection{和事件（并事件）}
+
+\begin{defn}
+    \(A \cup B\) 表示 \(A\) 事件与 \(B\) 事件\textbf{至少发生一个}，也记作 \(A + B\).
+\end{defn}
+
+\subsubsection{积事件（交事件）}
+
+\begin{defn}
+    \(A \cap B\) 表示事件 \(A\) 和事件 \(B\) \textbf{同时发生}，也记作 \(AB\).
+\end{defn}
+
+\subsubsection{差事件}
+\begin{defn}
+    事件 \(A\) 发生且事件 \(B\) 不发生，记作 \(A - B\);
+    事件 \(B\) 发生且事件 \(A\) 不发生，记作 \(B - A\).
+\end{defn}
+
+\subsubsection{互斥事件（互不相容）}
+
+\begin{defn}
+    事件 \(A\) 与事件 \(B\), 不能同时发生，记作 \(A \cap B = \emptyset\).
+\end{defn}
+
+\subsubsection{逆事件（对立事件）}
+\begin{defn}
+    事件 \(A\) 和 \(B\) \textbf{有且仅有}一个发生，记作 \(A \cap B = \emptyset\) 且 \(A \cup B = \Omega\).
+\end{defn}
+
+\begin{rmk}
+    由此可知，对立事件一定是互斥事件而互斥事件不一定是对立事件.
+\end{rmk}
+
+\subsection{事件的运算律}
+
+\begin{thm}{交换律}
+    \(A \cup B = B \cup A\)\qquad \(AB = BA\).
+\end{thm}
+\begin{thm}{结合律}
+    \(A \cup \left(B \cup C\right) = \left(A \cup B\right) \cup C\)\qquad \(A\left(BC\right) = \left(AB\right)C\).
+\end{thm}
+\begin{thm}{分配律}
+    \(A \cup \left(B \cap C\right) = \left(A \cup B\right) \cap \left(A \cup C\right)\)\qquad \(A \cap \left(B \cup C\right) = \left(A \cap B\right) \cup \left(A \cap C\right).\)
+\end{thm}
+\begin{thm}{De Morgan's Law}
+    \(\overline{A \cup B } = \overline{A} \cap \overline{B}\)\qquad \(\overline{A \cap B} = \overline{A} \cup \overline{B}.\)
+\end{thm}
+
+\section{频率与概率}
+
+\subsection{频率}
+\begin{defn}
+    事件发生的频数 (\(n_A\)) 与试验总次数 (\(n\)) 之间的比值：
+    \[
+        f_n\left(A\right) = \frac{n_A}{n}.
+    \]
+\end{defn}
+
+\subsubsection{性质}
+\begin{enumerate}
+    \item \(0 \leqslant f_n\left(A\right) \leqslant 1\).
+    \item \(f_n\left(\Omega\right) = 1\).
+    \item 若 \(A_1 , A_2 , A_3 \cdots A_k\) 为\textbf{两两互不相容}事件，则\[f_n\left(A_1\cup A_2 \cup A_3 \cup \cdots \cup A_k\right) = \sum_{i = 1}^{k} f_n\left(A_i\right).\]
+\end{enumerate}
+
+\subsection{概率}
+
+用于衡量事件 \(A\) 发生的可能性的大小，一般用 \(P\) 来表示。
+
+\subsubsection{基本性质}
+\begin{enumerate}
+    \item 对于 \(\forall A\), 有 \(P\left(A\right) \geqslant 0\).
+    \item \(P\left(\Omega\right) = 1\).
+    \item \textbf{可列可加性：}若 \(A_1 , A_2 , A_3 \cdots\) 为\textbf{两两互不相容}事件，则\[P\left(A_1\cup A_2 \cup A_3 \cup \cdots\right) = \sum_{i = 1}^{\infty}P\left(A_i\right).\]
+\end{enumerate}
+
+\subsubsection{重要性质}
+\begin{enumerate}
+    \item \(P\left(\emptyset\right) = 0\).
+    \item \textbf{有限可加性：}若 \(A_1 , A_2 , A_3 \cdots A_n\) 为\textbf{两两互不相容}事件，则\[P\left(A_1\cup A_2 \cup A_3 \cup \cdots \cup A_n\right) = \sum_{i = 1}^{k} P\left(A_i\right).\]
+    \item 若 \(A \subset B\), 则 \(P\left(B\right) \geqslant P\left(A\right)\). 等号成立当且仅当 \(A = B\).
+    \item 对于 \(\forall A\), 必有 \(P\left(A\right) \leqslant 1\).
+    \item 对于 \(\forall A\), 有 \(P\left(\overline{A}\right) = 1 - P\left(A\right)\).
+    \item 对于 \(\forall A, B\) 有\[P\left(A\cup B\right) = P\left(A\right) + P\left(B\right) - P\left(AB\right).\]
+    \item \textbf{次可加性：}对于任意事件列 \(A_1 , A_2 , \cdots , A_n , \cdots\), 有 \(P\left(\bigcup_{n = 1}^{\infty} A_n\right) \leqslant \sum_{n = 1}^{\infty} P\left(A_n\right)\).
+    \item \textbf{下连续性：}若事件列满足 \(A_n \subset A_{n+1} , n = 1 , 2 , \cdots\), 则\[P\left(\bigcup_{n = 1}^{\infty} A_n\right) = \lim_{n \rightarrow \infty} P\left(A_n\right).\]
+    \item \textbf{上连续性：}若事件列满足 \(A_n \supset A_{n+1} , n = 1 , 2 , \cdots\), 则\[P\left(\bigcap_{n = 1}^{\infty} A_n\right) = \lim_{n \rightarrow \infty} P\left(A_n\right).\]
+\end{enumerate}
+
+可以将上述性质 \(6\) 推广至一般形式，即为容斥原理：
+
+\begin{thm}{容斥原理}
+    对任意的事件 \(A_1 , A_2 , \cdots , A_n\), 有
+    \begin{align*}
+        P\left(\bigcup^{n}_{k = 1} A_k\right) = &\sum_{k = 1}^{n}P\left(A_k\right) - \sum_{1 \leqslant i < j \leqslant n} P\left(A_i A_j\right) + \sum_{1 \leqslant i < j < k \leqslant n} P\left(A_i A_j A_k\right) - \cdots + \\ &\left(-1\right)^{n-1}P\left(A_1 A_2 \cdots A_n\right).
+    \end{align*}
+\end{thm}
+
+\begin{proof}
+    应用数学归纳法. \(n = 2\) 时，由于 \(A_1 \cup A_2 = A_1 + A_2 - A_1 \cap A_2\), 根据\textbf{有限可加性}，有
+    \begin{align*}
+        P\left(A_1\cup A_2\right) = P\left(A_1\right) + P\left(A_2 - A_1 \cap A_2\right) = P\left(A_1\right) + P\left(A_2\right) - P\left(A_1 A_2\right).
+    \end{align*}
+    假设对 \(n = k - 1\) 成立，当 \(n = k\) 时，应用归纳假设前提有：
+    \begin{align*}
+        P\left(\bigcup_{i = 1}^{k} A_i\right) =& P\left(\left(\bigcup_{i = 1}^{k - 1}A_i\right) \cup A_k\right) \\
+        =& P\left(\bigcup_{i = 1}^{k - 1} A_i\right) + P\left(A_k\right) - P\left(\left(\bigcup_{i = 1}^{k - 1} A_i\right) \cap A_k\right) \\
+        =& P\left(\bigcup_{i = 1}^{k - 1} A_i\right) + P\left(A_k\right) - P\left(\bigcup_{i = 1}^{k - 1} \left(A_i A_k\right)\right) \\
+        =& \sum_{i = 1}^{k}P\left(A_i\right) - \sum_{1 \leqslant i < j \leqslant k} P\left(A_i A_j\right) + \sum_{1 \leqslant i < j < k \leqslant k} P\left(A_i A_j A_k\right) - \cdots + \\
+        & \left(-1\right)^{k-1}P\left(A_1 A_2 \cdots A_k\right).
+    \end{align*}
+\end{proof}
+
+\begin{example}
+    设 \(A\) 和 \(B\) 是任意两个概率不为 \(0\) 的不相容事件，则下列结论正确的是？
+    
+    \vspace{0.5cm}
+
+    \begin{minipage}[l]{0.45\textwidth}
+        \begin{enumerate}
+            \item[A.] \(\overline{A}\) 与 \(\overline{B}\) 不相容.
+            \item[C.] \(P\left(AB\right) = P\left(A\right) \cdot P\left(B\right)\).
+        \end{enumerate}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \begin{enumerate}
+            \item[B.] \(\overline{A}\) 与 \(\overline{B}\) 相容.
+            \item[D.] \(P\left(A - B\right) = P\left(A\right)\).
+        \end{enumerate}
+    \end{minipage}
+\end{example}
+
+\begin{solution}
+    \begin{enumerate}
+        \item[A.] 当 \(A \cup B \neq \Omega\) 时，\(\overline{A} \cap \overline{B} \neq \emptyset\).
+        \item[B.] 当 \(A\) 与 \(B\) 为互斥事件时，\(\overline{A} \cap \overline{B} = \emptyset\). 
+        \item[C.] \(P\left(AB\right) = \emptyset \neq P\left(A\right) \cdot P\left(B\right)\).
+        \item[D.] \(P\left(A - B\right) = P\left(A - \left(A \cap B\right)\right) = P\left(A - \emptyset\right) = P\left(A\right)\).
+    \end{enumerate}
+\end{solution}
+
+\begin{example}
+    已知 \(P\left(A\right) = P\left(B\right) = P\left(C\right) = \frac{1}{4}\), \(P\left(AB\right) = 0\), \(P\left(AC\right) = P\left(BC\right) = \frac{1}{6}\), 则事件 \(A , B , C\) 全不发生的概率为？
+\end{example}
+
+\begin{solution}
+    题意要求 \(P\left(\overline{A} \cap \overline{B} \cap \overline{C}\right)\):
+    \begin{align*}
+        P\left(\overline{A} \cap \overline{B} \cap \overline{C}\right) = P\left(\overline{A \cup B \cup C}\right) = 1 - P\left(A \cup B \cup C\right).
+    \end{align*}
+    接下来求 \(P\left(A \cup B \cup C\right)\), 根据\textbf{容斥原理：}
+    \begin{align*}
+        P\left(A \cup B \cup C\right) =& P\left(A\right) + P\left(B\right) + P\left(C\right) \\
+        & -P\left(AB\right) - P\left(AC\right) - P\left(BC\right) \\
+        & + P\left(ABC\right)\\
+        =& \frac{3}{4} - \frac{1}{3} + P\left(ABC\right)
+    \end{align*}
+    又因为 \(ABC \subset AB\) 所以 \(0 \leqslant P\left(ABC\right) \leqslant P\left(AB\right) = 0 \Rightarrow P\left(ABC\right) = 0\). 由此得到
+    \[P\left(\overline{A} \cap \overline{B} \cap \overline{C}\right) = 1 - P\left(A \cup B \cup C\right) = 1 - \frac{5}{12} = \frac{7}{12}\]
+\end{solution}
+
+\begin{example}
+    设当 \(A\) 与 \(B\) 同时发生时，\(C\) 必然发生则？
+     
+    \vspace{0.5cm}
+
+    \begin{minipage}[l]{0.45\textwidth}
+        \begin{enumerate}
+            \item[A.] \(P\left(C\right)\leqslant P\left(A\right) + P\left(B\right) - 1\).
+            \item[C.] \(P\left(C\right) = P\left(AB\right)\).
+        \end{enumerate}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \begin{enumerate}
+            \item[B.] \(P\left(C\right)\geqslant P\left(A\right) + P\left(B\right) - 1\).
+            \item[D.] \(P\left(C\right) = P\left(A \cup B\right)\).
+        \end{enumerate}
+    \end{minipage}
+\end{example}
+
+\begin{solution}
+    由题意可知 \(AB \subset C\), 因此 \(P\left(C\right) \geqslant P\left(AB\right)\), 故 C 错误。且 \(C\) 不一定等于 \(A \cup B\), D 错误。又因为 \[P\left(A \cup B\right) = P\left(A\right) + P\left(B\right) - P\left(AB\right).\]
+    可以推出\[P\left(AB\right) = P\left(A\right) + P\left(B\right) - P\left(A \cup B\right).\]
+    根据包含关系，有：
+    \begin{align*}
+        P\left(C\right)\geqslant P\left(AB\right) &= P\left(A\right) + P\left(B\right) - P\left(A \cup B\right)\\
+        &\geqslant P\left(A\right) + P\left(B\right) - 1.
+    \end{align*}
+    故 B 正确.
+\end{solution}
+
+\begin{example}
+    随机事件 \(A\), \(B\) 及其和事件 \(A\cup B\) 发生的概率分别为 \(0.4 , 0.3 , 0.6\). \(\overline{B}\) 表示 \(B\) 的对立事件，那么积事件 \(A \overline{B}\) 发生的概率 \(P\left(A\overline{B}\right)\) 为？
+\end{example}
+
+\begin{solution}
+    根据概率的运算律，有：
+    \begin{align*}
+        P\left(A\overline{B}\right) = P\left(A \left(\Omega - B\right)\right) = P\left(A \Omega - AB\right) = P\left(A - AB\right) = P\left(A\right) - P\left(AB\right).
+    \end{align*}
+    上式中 \(P\left(A - AB\right) = P\left(A\right) - P\left(AB\right)\) 成立因为 \(AB \subset A\). 再根据容斥原理：
+    \begin{align*}
+        P\left(A\cup B\right) = P\left(A\right) + P\left(B\right) - P\left(AB\right).
+    \end{align*}
+    可以得出
+    \begin{align*}
+        P\left(AB\right) = P\left(A\right) + P\left(B\right) - P\left(A\cup B\right) = 0.1.
+    \end{align*}
+    因此可以得出
+    \begin{align*}
+        P\left(A\overline{B}\right) = P\left(A\right) - P\left(AB\right) = 0.4 - 0.1 = 0.3.
+    \end{align*}
+\end{solution}
+
+\clearpage
+
+\section{古典概型}
+
+\begin{defn}
+    满足以下两个特性的概率模型为\textbf{古典概型}：
+    \begin{enumerate}
+        \item \textbf{有限性：}\(\Omega\) 包含的样本点为有限个.
+        \item \textbf{等可能性：}样本点（基本事件）发生的可能性相同.
+    \end{enumerate}
+\end{defn}
+
+\section{条件概率}
+
+考虑事件 \(A\) 发生的情况下，事件 \(B\) 发生的概率。
+
+\begin{example}
+    将一枚硬币抛掷两次，观察其出现正反面的情况. 设事件 \(A\) 为“至少有一次为 \(H\)”，事件 \(B\) 为“两次掷出同一面”. 现在来求已知事件 \(A\) 发生的条件下事件 \(B\) 发生的概率.
+\end{example}
+
+\begin{solution}
+    考虑样本空间：
+    \[\Omega = \{HH , HT , TH , TT\}\]
+    \[A = \{HH , HT , TH\}\]
+    \[B = \{HH , TT\}\]
+    \[P\left(B | A\right) = \frac{1}{3}.\]
+\end{solution}
+
+\begin{corollary}
+    设试验的样本空间的样本点总数为 \(n\), \(A\) 包含的样本点有 \(m\) 个 (\(m > 0\)), \(AB\) 包含的样本点有 \(k\) 个， 则
+    \[P\left(B|A\right) = \frac{k}{m} = \frac{k/n}{m/n} = \frac{P\left(AB\right)}{P\left(A\right)}.\]
+\end{corollary}
+
+\begin{defn}{条件概率}
+    设 \(A\), \(B\) 为两个事件，且 \(P\left(A\right) > 0\), 则
+    \[P\left(B|A\right) = \frac{P\left(AB\right)}{P\left(A\right)}.\]
+\end{defn}
+
+\subsubsection{特点}
+\begin{enumerate}
+    \item \textbf{非负性：}对 \(\forall B\), \(P\left(B | A\right) \geqslant 0\)；
+    \item \textbf{规范性：}对于必然事件 \(\Omega\), 有 \(P\left(\Omega | A\right) = 1\)；
+    \item \textbf{可列可加性：}设 \(B_1 , B_2 , B_3 , \cdots\) \textbf{两两互不相容}，则有\[P\left(\bigcup_{i = 1}^\infty B_i | A\right) = \sum_{i = 1}^{\infty} P\left(B_i | A\right).\]
+    \item 对 \(\forall B_1 , B_2\), 有 \[P\left(B_1 \cup B_2 | A\right) = P\left(B_1 | A\right) + P\left(B_2 | A\right) - P\left(B_1 B_2 | A\right).\]
+\end{enumerate}
+
+\begin{example}
+    一盒子装有 \(4\) 只产品，\(3\) 只一等品，\(1\) 只二等品，从中取产品两次，每次任取一只，不放回抽样. 设事件 \(A\) 为“第一次取到的是一等品”，事件 \(B\) 为“第二次取到的是一等品”. 试求条件概率 \(P\left(B | A\right)\).
+\end{example}
+
+\begin{solution}
+    \begin{align*}
+        P\left(B | A\right) = \frac{P\left(AB\right)}{P\left(A\right)} = \frac{\frac{3}{4}\times \frac{2}{3}}{\frac{3}{4}} = \frac{2}{3}.
+    \end{align*}
+\end{solution}
+
+\begin{example}
+    设某动物活 \(20\) 年以上的概率是 \(0.8\), 活 \(25\) 年以上的概率为 \(0.4\). 现有只 \(20\) 岁的该动物，问该动物能活到 \(25\) 岁以上的概率.
+\end{example}
+
+\begin{solution}
+    依题意，设事件 \(A\) 为动物活到 \(20\) 岁以上，事件 \(B\) 为动物活到 \(25\) 岁以上. 现在要求 \(P\left(B | A\right)\). 根据条件概率公式，有
+    \[P\left(B | A\right) = \frac{P\left(AB\right)}{A} = \frac{0.4}{0.8} = 0.5\]
+    其中，由于 \(B \subset A\), 因此 \(P\left(AB\right) = P\left(B\right)\).
+\end{solution}
+
+\begin{example}
+    设 \(A\), \(B\) 为随机事件，且 \(0 < P\left(A\right) < 1\), \(P\left(B\right) > 0\), \(P\left(B | A\right) = P\left(B | \overline{A}\right)\), 则必有？
+      
+    \vspace{0.5cm}
+
+    \begin{minipage}[l]{0.45\textwidth}
+        \begin{enumerate}
+            \item[A.] \(P\left(A | B\right) = P\left(\overline{A} | B\right)\).
+            \item[C.] \(P\left(AB\right) = P\left(A\right)P\left(B\right)\).
+        \end{enumerate}
+    \end{minipage}
+    \begin{minipage}[c]{0.45\textwidth}
+        \begin{enumerate}
+            \item[B.] \(P\left(A | B\right) \neq P\left(\overline{A} | B\right)\).
+            \item[D.] \(P\left(AB\right) \neq P\left(A\right)P\left(B\right)\).
+        \end{enumerate}
+    \end{minipage}
+\end{example}
+
+\begin{solution}
+    \begin{align*}
+        &P\left(B | A\right) = P\left(B | \overline{A}\right)\\
+        \implies  & \frac{P\left(AB\right)}{P\left(A\right)} = \frac{P\left(\overline{A} B\right)}{P\left(\overline{A}\right)} = \frac{P\left(B\right) - P\left(AB\right)}{1 - P\left(A\right)}\\
+        \implies & P\left(AB\right) - P\left(AB\right)\cdot P\left(A\right) = P\left(A\right) \cdot P\left(B\right) - P\left(A\right)\cdot P\left(AB\right)\\
+        \implies & P\left(AB\right) = P\left(A\right) \cdot P\left(B\right).
+    \end{align*}
+\end{solution}
+
+\section{乘法定理}
+
+由条件概率：
+\[P\left(B | A\right) = \frac{P\left(AB\right)}{P\left(A\right)}.\]
+可得乘法定理：
+\[P\left(AB\right) = P\left(A\right) \cdot P\left(B | A\right).\]
+
+\begin{corollary}{选妃公式}
+    \[P\left(ABC\right) = P\left(A\right)\cdot P\left(B | A\right)\cdot P\left(C | AB\right).\]
+    \[P\left(ABCD\right) = P\left(A\right)\cdot P\left(B | A\right) \cdot P\left(C | AB\right) \cdot P\left(D | ABC\right).\]
+\end{corollary}
+
+\begin{example}
+    设袋中有 \(r\) 只红球，\(t\) 只白球. 每次自袋中任取一球，观察其颜色然后放回，并再放入 \(a\) 只与所取出的那只球同色的球. 若在袋中连续取球四次，试求第一、二次取到红球且第三、四次取到白球的概率.
+\end{example}
+
+\begin{solution}
+    设 \(A_i\) 为第 \(i\) 次取到红球，\(B_i\) 为第 \(i\) 次取到白球，题意要求 \(P\left(A_1 A_2 B_3 B_4\right)\). 根据乘法定理：
+    \begin{align*}
+        P\left(A_1 A_2 B_3 B_4\right) &= P\left(A_1\right)\cdot P\left(A_2 | A_1\right) \cdot P\left(B_3 | A_1 A_2\right) \cdot P\left(B_4 | A_1 A_2 B_3\right) \\
+        &= \frac{r}{r + t} \cdot \frac{r + a}{r + t + a} \cdot \frac{t}{r + t + 2a} \cdot \frac{t + a}{r + t + 3a}.
+    \end{align*}
+\end{solution}
+
+\begin{example}
+    设某光学仪器厂制造的透镜，第一次落下时打破的概率为 \(\frac{1}{2}\), 若第一次落下未打破，第二次落下打破的概率为 \(\frac{7}{10}\), 第三次落下打破的概率为 \(\frac{9}{10}\). 求透镜落下三次而未打破的概率.
+\end{example}
+
+\begin{solution}
+    设 \(A_i\) 为第 \(i\) 次落下打破，则题意要求 \(P\left(\overline{A_1} \cap \overline{A_2} \cap \overline{A_3}\right)\). 根据乘法定理：
+    \begin{align*}
+        P\left(\overline{A_1} \cap \overline{A_2} \cap \overline{A_3}\right) &= P\left(\overline{A_1}\right) \cdot P\left(\overline{A_2} | \overline{A_1}\right) \cdot P\left(\overline{A_3} | \overline{A_1} \cap \overline{A_2}\right) \\
+        &= \frac{1}{2} \times \frac{3}{10} \times \frac{1}{10} \\
+        &= 1.5\%.
+    \end{align*}
+\end{solution}
+
+\begin{example}
+    甲袋中 \(3\) 个白球 \(6\) 个黄球，乙袋中 \(5\) 个白球 \(4\) 个黄球；先从甲袋中任选一只放入乙袋，再从乙袋中任选一只放入甲；问：甲袋中白球的数目不发生变化的概率.
+\end{example}
+
+\begin{solution}
+    题意要求两次选择选中同样颜色球的概率. 设 \(A_i\) 为第 \(i\) 次选中白球，则要求 \(P\left(\left(A_1 \cap A_2\right) \cup \left(\overline{A_1} \cap \overline{A_2}\right)\right) = P\left(A_1 \cap A_2\right) + P\left(\overline{A_1}\cap \overline{A_2}\right)\).
+    \begin{align*}
+        P\left(A_1 \cap A_2\right) + P\left(\overline{A_1} \cap \overline{A_2}\right) = \frac{1}{3} \times \frac{3}{5} + \frac{2}{3} \times \frac{1}{2} = \frac{8}{15}.
+    \end{align*}
+    其中 \(P\left(\left(A_1 \cap A_2\right) \cup \left(\overline{A_1} \cap \overline{A_2}\right)\right) = P\left(A_1 \cap A_2\right) + P\left(\overline{A_1}\cap \overline{A_2}\right)\) 成立因为 \(\left(A_1 \cap A_2\right)\) 与 \(\left(\overline{A_1}\cap \overline{A_2}\right)\) 互不相容.
+\end{solution}
+
+\begin{example}
+    \(100\) 件产品中有 \(10\) 件次品，用不放回方式每次抽取一件，连续抽 \(3\) 次，问第三次才抽到次品的概率.
+\end{example}
+
+\begin{solution}
+    设 \(A_i\) 为第 \(i\) 次抽中次品，则题意要求 \(P\left(\overline{A_1}\cdot \overline{A_2} \cdot A_3\right)\). 根据乘法定理：
+    \begin{align*}
+        P\left(\overline{A_1}\cdot \overline{A_2} \cdot A_3\right) &= P\left(\overline{A_1}\right) \cdot P\left(\overline{A_2} | \overline{A_1}\right) \cdot P\left(A_3 | \overline{A_1} \cdot \overline{A_2}\right) \\
+        &= \frac{9}{10} \times \frac{89}{99} \times \frac{10}{98}
+    \end{align*}
+\end{solution}
+
+\clearpage
+
+\section{全概率公式}
+
+\subsection{完备事件群}
+
+\begin{defn}
+    试验 \(E\) 的样本空间为 \(\Omega\), \(B_1 , B_2 , B_3 , \cdots , B_n\) 为 \(E\) 中的一组事件，若满足：
+    \begin{enumerate}
+        \item \(B_i \cap B_j = \emptyset\), 其中 \(i \neq j\) 且 \(i\,,\,j = 1 , 2 , 3 ,\cdots , n\)；
+        \item \(B_1 \cup B_2 \cup \cdots \cup B_n = \Omega\).
+    \end{enumerate}
+    则称 \(B_1 , B_2 , \cdots , B_n\) 为 \(\Omega\) 的一个划分（完备事件群）.
+\end{defn}
+
+\begin{rmk}
+    注意到，上述定义中的两个条件，若只对两个事件成立，即对 \(B_1 , B_2\) 有 \(B_1 \cap B_2 = \emptyset\) 且 \(B_1 \cup B_2 = \Omega\). 则 \(B_1 , B_2\) 为一组对立事件.
+\end{rmk}
+
+\begin{example}
+    设试验 \(E\) 为投掷一枚骰子观察点数，其中有一下三个事件：
+    \begin{enumerate}
+        \item[] \(B_1 = \{1\,,\,2\,,\,3\}\)；
+        \item[] \(B_2 = \{4\,,\,5\}\)；
+        \item[] \(B_3 = \{6\}\).
+    \end{enumerate}
+    根据定义，\(B_1 , B_2 , B_3\) 显然是 \(\Omega = \{1\,,\,2\,,\,3\,,\,4\,,\,5\,,\,6\}\) 的一个划分（完备事件群）.
+\end{example}
+
+\subsection{全概率公式}
+
+\begin{thm}{全概率公式}
+    设 \(E\) 的样本空间为 \(\Omega\), \(A\) 是 \(E\) 中的事件，\(B_1 , B_2 , \cdots , B_n\) 为 \(\Omega\) 的一组完备事件群，且 \(P\left(B_i\right) > 0\,,\,\left(i = 1 , 2 , 3 , \cdots , n\right)\), 则
+    \begin{align*}
+        P\left(A\right) = \sum_{i = 1}^{n} P\left(A|B_i\right) \cdot P\left(B_i\right).
+    \end{align*}
+\end{thm}
+
+\begin{proof}
+    事件 \(A\) 可以表示为 
+    \begin{align*}
+        A \cap \Omega = A \cap \left(\bigcup_{i = 1}^{n}B_i\right) = \bigcup_{i = 1}^n \left(A\cap B_i\right).
+    \end{align*}
+    又因为 \(A\cap B_i \subset B_i\) 且 \(B_i , i = 1 , 2 , 3 , \cdots , n\) 之两两互不相容，所以对 \(\forall i \neq j\) 有：
+    \begin{align*}
+        \left(A\cap B_i\right) \cap \left(A\cap B_j\right) = \emptyset.
+    \end{align*}
+    因此有：
+    \begin{align*}
+        P\left(A\right) &= P\left(A \cap \Omega\right) = P\left(A \cap \left(\bigcup_{i = 1}^{n}B_i\right)\right) = P\left(\bigcup_{i = 1}^n \left(A\cap B_i\right)\right)\\
+        &= \sum_{i = 1}^{n} P\left(A B_i\right).
+    \end{align*}
+    根据乘法定理：
+    \begin{align*}
+        P\left(A\right) &= \sum_{i = 1}^{n} P\left(A B_i\right) \\ 
+        &= \sum_{i = 1}^{n} P\left(B_i\right)\cdot P\left(A | B_i\right).
+    \end{align*}
+\end{proof}
+
+\begin{example}
+    一批产品共有 \(10\) 个正品和 \(2\) 个次品，任意抽取两次，不放回抽取. 问：第二次抽到次品的概率.
+\end{example}
+
+\begin{solution}
+    设事件 \(A\) 为第二次抽到次品；事件 \(B\) 为第一次抽到正品. 显然事件 \(B\) 与事件 \(\overline{B}\) 构成样本空间 \(\Omega\) 的一个完备事件群. 根据全概率公式：
+    \begin{align*}
+        P\left(A\right) &= P\left(B\right) \cdot P\left(A | B\right) + P\left(\overline{B}\right) \cdot P\left(A | \overline{B}\right)\\
+        &= \frac{5}{6}\times \frac{2}{11} + \frac{1}{6}\times \frac{1}{11}.
+    \end{align*}
+\end{solution}
+
+\begin{rmk}
+    上面的例题在构造完备事件群时只考虑了第一次抽取样品，这是合理的. 因为第二次抽取样品要在第一次抽取之后，由于抽样是不放回抽样，第一次抽取的结果会影响第二次抽取时的概率，所以第二次抽样的事件是第一次抽样事件的子集，因此只需要考虑第一次抽样即可构造完备事件群. 这种方式在类似的情况中都成立.
+\end{rmk}
+
+\begin{example}
+    从 \(1\), \(2\), \(3\), \(4\) 中任取一个数，记为 \(x\), 再从 \(1\), \(2\), \(\cdots\), \(x\) 中任取一个数记为 \(y\). 求 \(P\{y = 2\}\).
+\end{example}
+
+\begin{solution}
+    依题意 \(x = i\) 为第一次抽到 \(i\), 显然 \(\{x = i | i = 1\,,\,2\,,\,3\,,\,4\}\) 为样本空间 \(\Omega\) 的一个完备事件群. 根据全概率公式：
+    \begin{align*}
+        P\left(y = 2\right) &= \sum_{i = 1}^{4} P\left(x = i\right) \cdot P\left(y = 2 | x = i\right)\\ 
+        &= \frac{13}{48}.
+    \end{align*}
+\end{solution}
+
+\begin{example}
+    研究表明肺癌的患病概率为 \(0.1\%\), 在人群中有 \(20\%\) 是吸烟者，他们患肺癌的概率为 \(0.4\%\), 求不吸烟者患肺癌的概率.
+\end{example}
+
+\begin{solution}
+    患肺癌的概率受吸烟与否的影响，因此设事件 \(A\) 为被抽样者吸烟，则 \(\overline{A}\) 为被抽样者不吸烟. 事件 \(A\) 与 \(\overline{A}\) 构成样本空间 \(\Omega\) 的一个完备事件群. 设事件 \(B\) 为被抽样者患肺癌，根据全概率公式：
+    \begin{align*}
+        P\left(B\right) &= P\left(A\right) \cdot P\left(B | A\right) + P\left(\overline{A}\right) \cdot P\left(B | \overline{A}\right) \\
+        &= 20\% \times 0.4\% + 80\%\times P\left(B | \overline{A}\right)\\
+        &= 0.1\%.
+    \end{align*}
+    则可得问题目标 \(P\left(B|\overline{A}\right)\).
+    \begin{align*}
+        P\left(B|\overline{A}\right) = (0.001 - 0.0008) \div 0.8 = 0.025\%.
+    \end{align*}
+\end{solution}
+
+\section{贝叶斯公式}
+
+\begin{thm}
+    设试验 \(E\) 的样本空间 \(\Omega\). \(A\) 是 \(E\) 的一个事件. \(\{B_i | i = 1\,,\,2\,,\,3\,,\,\cdot\,,\,n\}\) 为 \(\Omega\) 的一个完备事件群. 且 \(P\left(A\right) > 0\), \(P\left(B_i\right) > 0\). 那么
+    \begin{align*}
+        P\left(B_i | A\right) = \frac{P\left(B_i\right) \cdot P\left(A | B_i\right)}{\sum_{j = 1}^{n}P\left(B_j\right) \cdot P\left(A | B_j\right)}. \qquad \left(i = 1\,,\,2\,,\,3\,,\,\cdots\,,\,n\right)
+    \end{align*}
+\end{thm}
+
+\begin{proof}
+    根据条件概率公式，有：
+    \begin{align*}
+        P\left(B_i | A\right) = \frac{P\left(A\cdot B_i\right)}{P\left(A\right)}.
+    \end{align*}
+    再对分母用全概率公式，对分子用乘法原理得：
+    \begin{align*}
+        P\left(B_i | A\right) = \frac{P\left(A\cdot B_i\right)}{P\left(A\right)} = \frac{P\left(B_i\right) \cdot P\left(A | B_i\right)}{\sum_{j = 1}^{n}P\left(B_j\right) \cdot P\left(A | B_j\right)}.
+    \end{align*}
+\end{proof}
+
+\clearpage
+
+\begin{example}
+    某电子设备制造厂所用的元件是由三家元件制造厂提供的. 根据以往的记录有以下数据：
+    \begin{table*}[h]
+        \centering
+        \renewcommand\arraystretch{1}
+        \setlength{\tabcolsep}{15mm}
+        \begin{tabular}[h]{c|c|c}
+            \hline
+            元件制造厂 & 次品率 & 提供元件的份额 \\ \hline
+            1 & 0.02 & 0.15 \\ 
+            2 & 0.01 & 0.80 \\ 
+            3 & 0.03 & 0.05 \\ 
+            \hline
+        \end{tabular}
+    \end{table*}
+
+    设这三家工厂的产品再仓库中是均匀混合的，且无区别的标志. 
+    \begin{enumerate}
+        \item[(1)] 在仓库中随机地取一只元件，求它是次品的概率；
+        \item[(2)] 在仓库中随机地取一只元件，若已知取到的是次品，求此次品出自三家工厂的概率.
+    \end{enumerate}
+\end{example}
+
+\begin{solution}
+    \begin{enumerate}
+        \item[(1)] 在仓库中随机地取一只元件，设 \(A_i\) 为此元件出自工厂 \(i\). 显然 \(\{A_i\}\) 为样本空间 \(\Omega\) 的一个完备事件群. 设事件 \(B\) 为该元件是次品，根据全概率公式：
+        \begin{align*}
+            P\left(B\right) = \sum_{i = 1}^{3} P\left(A_i\right) \cdot P\left(B | A_i\right) = 0.15 \times 0.02 + 0.80 \times 0.01 + 0.05 \times 0.03 = 1.25\%.
+        \end{align*}
+        \item[(2)] 根据贝叶斯公式：
+        \begin{align*}
+            & P\left(A_i | B\right) = \frac{P\left(A_i\right) \cdot P\left(B | A_i\right)}{P\left(B\right)} \\
+            \implies & P\left(A_1 | B\right) = \frac{P\left(A_1\right) \cdot P\left(B | A_1\right)}{P\left(B\right)} = \frac{0.15 \times 0.02}{0.0125} = 0.24 \\
+            \implies & P\left(A_2 | B\right) = \frac{P\left(A_2\right) \cdot P\left(B | A_2\right)}{P\left(B\right)} = \frac{0.80 \times 0.01}{0.0125} = 0.64 \\
+            \implies & P\left(A_3 | B\right) = \frac{P\left(A_3\right) \cdot P\left(B | A_3\right)}{P\left(B\right)} = \frac{0.05 \times 0.03}{0.0125} = 0.12.
+        \end{align*}
+    \end{enumerate}
+\end{solution}
+
+\begin{example}
+    对以往的数据分析结果表明，当及其调整得良好时，产品得合格率为 \(98\%\), 而当机器发生某种故障时，其合格率为 \(55\%\). 每天早上机器开动时，机器调整良好的概率为 \(95\%\). 现已知某日早上第一件产品是合格品，求机器调整良好的概率.
+\end{example}
+
+\begin{solution}
+    设事件 \(A\) 为机器调整良好，事件 \(B\) 为生产的产品合格. 问题要求 \(P(A | B)\). 由于事件 \(B\) 的概率受到事件 \(A\) 的影响，事件 \(A\) 与事件 \(\overline{A}\) 构成样本空间 \(\Omega\) 的一个完备事件群. 因此模型满足贝叶斯公式的适用条件，根据贝叶斯公式：
+    \begin{align*}
+        P\left(A | B\right) &= \frac{P\left(A\right)\cdot P\left(B | A\right)}{P\left(A\right)\cdot P\left(B|A\right) + P\left(\overline{A}\right)\cdot P\left(B | \overline{A}\right)} \\
+        &= \frac{95\% \times 98\%}{95\% \times 98\% + 5\% \times 55\%} \\
+        &\thickapprox 0.9713.
+    \end{align*}
+\end{solution}
+
+\begin{rmk}
+    上例，题干中说机器调整良好的概率为 \(95\%\), 这是在生产前根据以往的经验得出的，我们称之为“先验概率”. 而在多加了一个条件“生产的第一件产品为合格品”后，计算得出机器调整良好的概率约为 \(97\%\), 这是“后验概率”. 后验概率是在得到额外信息后对先验概率修正后的结果.
+\end{rmk}
+
+\section{事件独立性}
+
+试验 \(E\) 的事件 \(A\), \(B\). 若 \(P\left(A\right) > 0\), 就可以定义 \(P\left(B | A\right)\). 一般情况下 \(P\left(B | A\right) \neq P\left(B\right) \implies\) 事件 \(A\) 发生与否\textbf{会对事件} \(B\) \textbf{发生的概率产生影响}；有的时候 \(P\left(B | A\right) = P\left(B\right) \implies\) 事件 \(A\) 发生与否\textbf{不会对事件} \(B\) \textbf{发生的概率产生影响}.
+
+\begin{example}
+    随机试验 \(E\)：投两枚硬币（甲和乙），观察正反面出现的情况. 假定事件 \(A\)：甲币正面向上；事件 \(B\)：乙币正面向上. 问：\(A\) 事件发生与否是否会对 \(B\) 发生的概率产生影响.
+\end{example}
+
+\begin{solution}
+    因为：
+    \begin{align*}
+        &\Omega = \{HH , HT , TH , TT\}\\
+        &A = \{HH , HT\} \qquad P\left(A\right) = \frac{1}{2} \qquad P\left(AB\right) = \frac{1}{4} \\
+        &B = \{HH , TH\} \qquad P\left(B\right) = \frac{1}{2}\\
+        &P\left(B | A\right) = \frac{P\left(AB\right)}{P\left(A\right)} = \frac{1}{2} = P\left(B\right)\\
+        &P\left(B | \overline{A}\right) = \frac{P\left(\overline{A} B\right)}{P\left(\overline{A}\right)} = \frac{1}{2} = P\left(B\right).
+    \end{align*}
+    所以没有影响. 同时，运用同样的分析方法也可以得出 \(B\) 发生与否对 \(A\) 没有影响.
+\end{solution}
+
+\begin{rmk}
+    在这个例子中，我们可以发现 \(P\left(AB\right)\) 恰好等于 \(P\left(A\right)\cdot P\left(B\right)\), 这是否是普遍性的结论呢？
+\end{rmk}
+
+\begin{defn}
+    假设 \(A\), \(B\) 为两个事件，如果满足：
+    \begin{align*}
+        P\left(AB\right) = P\left(A\right) \cdot P\left(B\right).
+    \end{align*}
+    则事件 \(A\) 与事件 \(B\) 相互独立，反之也成立.
+\end{defn}
+
+\begin{thm}
+    设 \(A\), \(B\), \(C\) 三个事件，有：
+    \begin{enumerate}
+        \item[(1)] \(P\left(AB\right) = P\left(A\right) \cdot P\left(B\right) \implies\) \(A\) 与 \(B\) 相互独立；
+        \item[(2)] \(P\left(AC\right) = P\left(A\right) \cdot P\left(C\right) \implies\) \(A\) 与 \(C\) 相互独立；
+        \item[(3)] \(P\left(CB\right) = P\left(C\right) \cdot P\left(B\right) \implies\) \(C\) 与 \(B\) 相互独立；
+        \item[(4)] \(P\left(ABC\right) = P\left(A\right) \cdot P\left(B\right) \cdot P\left(C\right)\).
+    \end{enumerate}
+    若 \(A\), \(B\), \(C\) 满足 (1), (2), (3) 式，则 \(A\), \(B\), \(C\) \textbf{两两独立}. 若满足 (1), (2), (3), (4) 式，则 \(A\), \(B\), \(C\) \textbf{相互独立}.
+\end{thm}
+
+\begin{example}
+    盒中有编号为 \(1 , 2 , 3 , 4\) 的 \(4\) 只球，随机地从盒中取一只球，事件 \(A\) 为“取得的是 \(1\) 号球或 \(2\) 号球”，事件 \(B\) 为“取得的是 \(1\) 号或 \(3\) 号球”，事件 \(C\) 为“取得的是 \(1\) 号或 \(4\) 号球”验证：
+    \[P\left(AB\right) = P\left(A\right)\cdot P\left(B\right)\qquad P\left(AC\right) = P\left(A\right)\cdot P\left(C\right)\qquad P\left(BC\right) = P\left(B\right)\cdot P\left(C\right).\]
+    但 \(P\left(ABC\right) \neq P\left(A\right)\cdot P\left(B\right)\cdot P\left(C\right)\).
+\end{example}
+
+\begin{solution}
+    根据题意：
+    \begin{align*}
+        &P\left(A\right) = P\left(B\right) = P\left(C\right) = \frac{1}{2}\\
+        &P\left(AB\right) = P\left(AC\right) = P\left(BC\right) = P\left(ABC\right) = \frac{1}{4}\\ 
+        \implies &P\left(AB\right) = P\left(A\right) \cdot P\left(B\right)\\ 
+        &P\left(AC\right) = P\left(A\right)\cdot P\left(C\right)\\ 
+        &P\left(BC\right) = P\left(B\right) \cdot P\left(C\right)\\ 
+        &\frac{1}{4} = P\left(ABC\right) \neq P\left(A\right)\cdot P\left(B\right) \cdot P\left(C\right) = \frac{1}{8}.   
+    \end{align*}
+\end{solution}
+
+\begin{criterion}
+    若 \(P\left(A\right) > 0\), \(P\left(B\right) > 0\), 则 \(A\) 与 \(B\) 相互独立与 \(A\) 与 \(B\) 不相容\textbf{不能同时发生}.
+\end{criterion}
+
+\begin{proof}
+    当 \(P\left(A\right) > 0\), \(P\left(B\right) > 0\) 时，若 \(A\) 与 \(B\) 不相容，则有：
+    \begin{align*}
+        P\left(AB\right) = P\left(\emptyset\right) = 0 \neq P\left(A\right)\cdot P\left(B\right).
+    \end{align*}
+    因此 \(A\) 与 \(B\) 不相互独立.
+\end{proof}
+
+\begin{rmk}
+    在上面的准则中，若 \(P\left(A\right) = 0\) 或 \(P\left(B\right) = 0\), 且 \(A\) 与 \(B\) 不相容，就有：
+    \begin{align*}
+        P\left(AB\right) = P\left(\emptyset\right) = 0 = P\left(A\right)\cdot P\left(B\right).
+    \end{align*}
+    由此可见，该准则的前提条件很重要.
+\end{rmk}
+
+\begin{corollary}
+    若 \(A\), \(B\) 相互独立，则下列结论成立：
+    \begin{enumerate}
+        \item \(A\) 与 \(\overline{B}\) 相互独立；
+        \item \(\overline{A}\) 与 \(B\) 相互独立；
+        \item \(\overline{A}\) 与 \(\overline{B}\) 相互独立.
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    这里只证明 \(A\) 与 \(\overline{B}\) 相互独立. 因为 \(A\), \(B\) 相互独立：
+    \begin{align*}
+        & A = A \Omega = A\left(B \cup \overline{B}\right) = \left(A\cap B\right)\cup \left(A \cap \overline{B}\right)\\
+        \implies & P\left(A\right) = P\left(AB\right) + P\left(A \overline{B}\right)\\ 
+        \implies & P\left(A\right) = P\left(A\right) \cdot P\left(B\right) + P\left(A\overline{B}\right) \\ 
+        \implies & P\left(A\right)\left(1 - P\left(B\right)\right) = P\left(A \overline{B}\right) \\ 
+        \implies & P\left(A\right)\cdot P\left(\overline{B}\right) = P\left(A \overline{B}\right).
+    \end{align*}
+    因此 \(A\) 与 \(\overline{B}\) 相互独立.
+\end{proof}
+
+\begin{corollary}
+    若事件群 \(\{A_i | i = 1\,,\,2\,,\,3\,,\,\cdots\,,\,n\}\,,\,\left(n \geqslant 2\right)\) 相互独立，则：
+    \begin{enumerate}
+        \item 任取其中 \(k\) 个事件也都相互独立；
+        \item 将 \(\{A_i\}\) 中任意 \(j\) 个事件换为其对立事件，得到的新事件群也相互独立；
+    \end{enumerate}
+\end{corollary}
+\ifx\allfiles\undefined
+\end{document}
+\fi
