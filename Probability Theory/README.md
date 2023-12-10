@@ -1,4 +1,4 @@
-# [一个LaTeX的数学笔记模板](https://zhuanlan.zhihu.com/p/604236564)
+# [笔记的文件结构](https://zhuanlan.zhihu.com/p/604236564)
 
 ## 使用	
 
